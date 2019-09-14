@@ -69,6 +69,7 @@ if __name__=='__main__':
     # print(sys.argv)
     args = parser.parse_args()
     #args = parser.parse_args(['1.1.1.1'])
+    # args = parser.parse_args(['1.1.1.1'])
     print(args)
 
     with open('all_payload.json','r') as f:
