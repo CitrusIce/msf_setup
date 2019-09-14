@@ -1,6 +1,6 @@
 [
     {
-        "platform": "windows",
+        "platform": "windows_x86",
         "port": 6001,
         "stageencoder": "x86/fnstenv_mov",
         "payload_name": "windows/meterpreter/reverse_tcp",
@@ -21,7 +21,7 @@
         ]
     },
     {
-        "platform": "windows",
+        "platform": "windows_x86",
         "port": "6002",
         "stageencoder": "x86/fnstenv_mov",
         "payload_name": "windows/meterpreter/reverse_http",
@@ -34,7 +34,7 @@
         ]
     },
     {
-        "platform": "windows",
+        "platform": "windows_x64",
         "port": 6003,
         "stageencoder": "x64/xor",
         "payload_name": "windows/x64/meterpreter/reverse_http",
@@ -47,7 +47,7 @@
         ]
     },
     {
-        "platform": "linux",
+        "platform": "linux_x86",
         "port": 6004,
         "stageencoder": "x86/fnstenv_mov",
         "payload_name": "linux/x86/meterpreter/reverse_tcp",
@@ -71,7 +71,7 @@
         ]
     },
     {
-        "platform": "linux",
+        "platform": "linux_x64",
         "port": 6006,
         "stageencoder": "x64/xor",
         "payload_name": "linux/x64/meterpreter/reverse_tcp",
