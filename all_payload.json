@@ -3,6 +3,7 @@
         "platform": "windows",
         "port": 6001,
         "stageencoder": "x86/fnstenv_mov",
+        "payload_name": "windows/x64/meterpreter/reverse_tcp",
         "payloads": [
             {
                 "name": "shellcode_x86",
@@ -23,6 +24,7 @@
         "platform": "windows",
         "port": "6002",
         "stageencoder": "x86/fnstenv_mov",
+        "payload_name": "windows/meterpreter/reverse_http",
         "payloads": [
             {
                 "name": "powershell_x86",
@@ -35,6 +37,7 @@
         "platform": "windows",
         "port": 6003,
         "stageencoder": "x64/xor",
+        "payload_name": "windows/x64/meterpreter/reverse_http",
         "payloads": [
             {
                 "name": "powershell_x64",
@@ -47,6 +50,7 @@
         "platform": "linux",
         "port": 6004,
         "stageencoder": "x86/fnstenv_mov",
+        "payload_name": "linux/x86/meterpreter/reverse_tcp",
         "payloads": [
             {
                 "name": "elf_x86",
@@ -57,6 +61,7 @@
     {
         "platform": "linux",
         "port": 6005,
+        "payload_name": "cmd/unix/reverse_bash",
         "payloads": [
             {
                 "name": "bash",
@@ -69,6 +74,7 @@
         "platform": "linux",
         "port": 6006,
         "stageencoder": "x64/xor",
+        "payload_name": "linux/x64/meterpreter/reverse_tcp",
         "payloads": [
             {
                 "name": "elf_x64",
@@ -79,6 +85,7 @@
     {
         "platform": "php",
         "port": 6007,
+        "payload_name": "php/meterpreter_reverse_tcp",
         "payloads": [
             {
                 "name": "php",
@@ -89,6 +96,7 @@
     {
         "platform": "python",
         "port": 6008,
+        "payload_name": "python/meterpreter_reverse_tcp",
         "payloads": [
             {
                 "name": "python",
