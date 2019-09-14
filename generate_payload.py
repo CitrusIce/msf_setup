@@ -20,8 +20,8 @@ def generate_payload(data,host,dest_dir=None):
         for payload in listener['payloads']:
             print('generating payload:',payload['name'],'....')
             cmd=payload['generate'].replace('<host>',host).replace('<port>',str(listener['port']))
-            print(cmd)
-            cmd = cmd.split()
+            # print(cmd)
+            # cmd = cmd.split()
             p = subprocess.Popen(cmd,
                                 stdout=subprocess.PIPE,
                                 stderr=subprocess.STDOUT,
