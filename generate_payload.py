@@ -67,8 +67,8 @@ if __name__=='__main__':
     #                     help='sum the integers (default: find the max)')
 
     # print(sys.argv)
-    # args = parser.parse_args()
-    args = parser.parse_args(['1.1.1.1'])
+    args = parser.parse_args()
+    #args = parser.parse_args(['1.1.1.1'])
     print(args)
 
     with open('all_payload.json','r') as f:
@@ -76,6 +76,6 @@ if __name__=='__main__':
 
     data = json.loads(json_data)
     # print(data)
-    # generate_payload(data,args.host,dest_dir=args.dest_dir)
-    # generate_special_usage(data)
+    generate_payload(data,args.host,dest_dir=args.dest_dir)
+    generate_special_usage(data)
     generate_msf_resource_scipt(data)
