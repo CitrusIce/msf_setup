@@ -48,7 +48,7 @@ def generate_msf_resource_scipt(data):
         f.write('set payload '+listener['payload_name']+'\n')
         f.write('set lport '+str(listener['port'])+'\n')
         f.write('set lhost 0.0.0.0\n')
-        f.write('set exitonsessions false\n')
+        f.write('set exitonsession false\n')
         if 'stageencoder' in listener:
             f.write('set enablestageencoding true\n')
             f.write('set stageencoder '+listener['stageencoder']+'\n')
