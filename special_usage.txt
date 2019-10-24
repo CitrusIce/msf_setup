@@ -1,5 +1,7 @@
 vbs_x86:
 	START cscript.exe payload_x86.vbs
+vba-exe:
+	put in ms document
 powershell_x86:
 	c:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -NoExit -File payload_x86.ps1
 powershell_x64:

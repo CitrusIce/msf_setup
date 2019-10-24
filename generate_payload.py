@@ -62,6 +62,7 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser(description='setup your meterpreter payloads')
     parser.add_argument('host',help='ip of your host')
     parser.add_argument('-o','--dest_dir',help='destination dir')
+    parser.add_argument('-s','--specify',help='generate specify file. use rc, payloads, or usage')
     # parser.add_argument('--sum', dest='accumulate', action='store_const',
     #                     const=sum, default=max,
     #                     help='sum the integers (default: find the max)')
@@ -71,12 +72,18 @@ if __name__=='__main__':
     #args = parser.parse_args(['1.1.1.1'])
     # args = parser.parse_args(['1.1.1.1'])
     print(args)
-
     with open('all_payload.json','r') as f:
         json_data = f.read()
-
     data = json.loads(json_data)
+
+    if args.specify=='rc':
+        generate_msf_resource_scipt(data)
+    elif args.specify=='payloads':
+        generate_payload(data,args.host,dest_dir=args.dest_dir)
+    elif args.specify=='usage':
+        generate_special_usage(data)
+    else:
     # print(data)
-    generate_payload(data,args.host,dest_dir=args.dest_dir)
-    generate_special_usage(data)
-    generate_msf_resource_scipt(data)
+        generate_payload(data,args.host,dest_dir=args.dest_dir)
+        generate_special_usage(data)
+        generate_msf_resource_scipt(data)
