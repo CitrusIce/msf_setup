@@ -11,3 +11,7 @@ payloads
 
 #.vscode
 .vscode
+
+#
+special_usage.txt
+setup_listener.rc
